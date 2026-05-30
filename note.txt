@@ -13,3 +13,22 @@ https://github.com/Dashboardpack/architectui-html-theme-free
 https://github.com/DashboardPack/architectui-html-theme-free.git (v 1.2.3)
 
 *asset -> public 
+
+p-icon 7
+https://ui-avatars.com/
+https://ui-avatars.com/api/?name=htet
+
+-php artisan make:controller Backend/AdminUserController
+
+route->controller->view 
+
+-laravel data table
+https://datatables.net/examples/basic_init/
+https://yajrabox.com/docs/laravel-datatables/8.0/installation
+https://github.com/yajra/laravel-datatables/releases?page=10
+
+-composer require yajra/laravel-datatables-oracle:"^9.15.0"
+
+ Yajra\DataTables\DataTablesServiceProvider::class,
+ 'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+ php artisan vendor:publish --tag=datatables

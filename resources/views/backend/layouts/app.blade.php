@@ -19,7 +19,13 @@
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
     <title>@yield('title')</title>
-<link href="{{asset('backend/css/main.css')}}" rel="stylesheet"></head>
+    <link href="{{asset('backend/css/main.css')}}" rel="stylesheet"></head>
+
+    <!-- //datatable -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap4.css">
+    
+     @yield('extra_css')
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
              
@@ -48,5 +54,15 @@
                 
         </div>
     </div>
-<script type="text/javascript" src="{{asset('backend/js/main.js')}}"></script></body>
+<script type="text/javascript" src="{{asset('backend/js/main.js')}}"></script>
+
+<!-- //datatable -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap4.js"></script>
+
+    @yield('scripts')
+</body>
 </html>
