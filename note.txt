@@ -1,0 +1,15 @@
+-composer require laravel/ui:^2.4
+-php artisan ui bootstrap --auth
+
+-php artisan migrate
+
+-php artisan make:controller Frontend/PageController
+
+-php artisan make:model AdminUser -m 
+
+-php artisan make:controller Backend/PageController
+
+https://github.com/Dashboardpack/architectui-html-theme-free
+https://github.com/DashboardPack/architectui-html-theme-free.git (v 1.2.3)
+
+*asset -> public 
