@@ -85,6 +85,8 @@
         });
 
         const sessionCreate = "{{ session('create') ? session('create') : '' }}";
+        const sessionUpdate = "{{ session('update') ? session('update') : '' }}";
+
         const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -100,6 +102,12 @@
                 Toast.fire({
                 icon: "success",
                 title: "{{session('create')}}",
+                });
+            }
+            if(sessionUpdate){
+                Toast.fire({
+                icon: "success",
+                title: "{{session('update')}}",
                 });
             }
             

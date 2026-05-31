@@ -32,6 +32,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>phone</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -67,6 +68,10 @@
                 {
                     data:'phone',
                     name:'phone'
+                },
+                {
+                    data:'action',
+                    name:'action',
                 }
              ]
              
