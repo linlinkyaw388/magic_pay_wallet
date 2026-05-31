@@ -32,3 +32,19 @@ https://github.com/yajra/laravel-datatables/releases?page=10
  Yajra\DataTables\DataTablesServiceProvider::class,
  'DataTables' => Yajra\DataTables\Facades\DataTables::class,
  php artisan vendor:publish --tag=datatables
+
+--------------------------------------------------
+
+-php artisan make:request StoreAdminUser
+
+=>laravel js validation  (No reload)
+https://github.com/proengsoft/laravel-jsvalidation
+
+- composer require proengsoft/laravel-jsvalidation
+-$ php artisan vendor:publish --provider="Proengsoft\JsValidation\JsValidationServiceProvider"
+ <!-- Laravel Javascript Validation -->
+ <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+ {!! JsValidator::formRequest('App\Http\Requests\MyFormRequest') !!}
+
+https://sweetalert2.github.io/
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

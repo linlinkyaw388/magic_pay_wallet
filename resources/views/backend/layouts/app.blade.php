@@ -25,6 +25,9 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
      <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap4.css">
     
+     <!-- custom css -->
+      <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
+
      @yield('extra_css')
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -62,6 +65,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap4.js"></script>
+
+
+     <!-- Laravel Javascript Validation -->
+    <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+
+    <!-- sweet alert2  -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+
+    <script>
+        $(document).ready(function(){
+            $('.back-btn').on('click',function(){
+                window.history.go(-1);
+                return false;
+            });
+
+            
+        });
+
+        const sessionCreate = "{{ session('create') ? session('create') : '' }}";
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            })
+            if(sessionCreate){
+                Toast.fire({
+                icon: "success",
+                title: "{{session('create')}}",
+                });
+            }
+            
+            
+        
+    </script>
+    
 
     @yield('scripts')
 </body>
