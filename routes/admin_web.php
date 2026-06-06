@@ -24,6 +24,9 @@ Route::prefix('admin')->name('admin.')->namespace('Backend') ->middleware('auth:
 
     Route::resource('user','UserController');
     Route::get('user/datatable/ssd','UserController@ssd');
+
+    Route::get('wallet','WalletController@index')->name('wallet.index');
+    Route::get('wallet/datatable/ssd','WalletController@ssd');
 });
 
 

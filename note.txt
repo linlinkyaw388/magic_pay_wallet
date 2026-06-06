@@ -94,3 +94,7 @@ https://github.com/spatie/laravel-helper-functions
 composer require spatie/laravel-helper-functions
 
 -custom Helper
+
+--------------------------------------------------
+
+-php artisan make:controller Backend/WalletController
