@@ -161,11 +161,15 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
+        
 
         /*
          * Package Service Providers...
          */
          Yajra\DataTables\DataTablesServiceProvider::class,
+
+         Jenssegers\Agent\AgentServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -174,6 +178,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        
 
     ],
 
@@ -228,6 +234,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
     ],
 

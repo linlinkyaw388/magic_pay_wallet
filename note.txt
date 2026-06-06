@@ -51,3 +51,11 @@ https://sweetalert2.github.io/
 
 -php artisan make:request UpdateAdminUser
 js validation မှာ false လုပ်ပေးဖို့လို။
+
+
+--------------------------------------------------
+
+=>user agent / ip address ကို ပြုလုပ်နိုင်သည်။
+
+-github.com/jenssegers/agent
+-composer require jenssegers/agent:^2.6  | composer require jenssegers/agent

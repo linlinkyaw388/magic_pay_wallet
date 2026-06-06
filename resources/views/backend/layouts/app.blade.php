@@ -70,6 +70,10 @@
     <script>
         $(document).ready(function(){
 
+            $('.btn-group').on('click',function(){  
+                $('.btn-group').removeClass('show');
+            });
+
             let token = document.querySelector('meta[name="csrf_token"]').getAttribute('content');
             if(token){
                 $.ajaxSetup({
