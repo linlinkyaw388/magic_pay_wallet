@@ -47,7 +47,7 @@
 
  <script>
     $(document).ready(function () {
-        $('.Datables').DataTable({
+        var table = $('.Datables').DataTable({
              ajax: '/admin/admin-user/datatable/ssd',
              processing: true,
              serverSide: true,
@@ -73,9 +73,32 @@
                     data:'action',
                     name:'action',
                 }
-             ]
-             
+             ] 
         });
+
+        //document.getElementById('delete').addEventListener('click',function(e){
+        //    e.preventDefault();
+        //})
+        $(document).on('click','.delete',function(e){
+            e.preventDefault();
+            var id = $(this).data('id');
+
+            Swal.fire({
+            title: "Are you sure.You want to delete this user?",
+            showCancelButton: true,
+            confirmButtonText: "Confirm",
+            }).then((result) => {
+             if (result.isConfirmed){
+                $.ajax({
+                    url : '/admin/admin-user/'+id,
+                    type : 'DELETE',
+                    success : function(){
+                        table.ajax.reload();
+                    }
+                })
+             }
+            });
+        })
     });
  </script>
 @endsection

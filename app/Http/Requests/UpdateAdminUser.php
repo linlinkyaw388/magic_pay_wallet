@@ -23,10 +23,10 @@ class UpdateAdminUser extends FormRequest
      */
     public function rules()
     {
-        //id ကိုခေါ်ပေးနိုင်။
+        //id ကိုခေါ်ပေးနိုင်။ resource ထဲက နာမည်ပြန်သုံးလို့ရ။
         $id = $this->route('admin_user');
        return [
-           
+            //ကိုယ့် id ကို ထည့်မတွက်အောင်ပေး။
             'name'=>'required',
             'email'=>'required|email|unique:admin_users,email,' .$id,
             'phone'=>'required|unique:admin_users,phone,'.$id,

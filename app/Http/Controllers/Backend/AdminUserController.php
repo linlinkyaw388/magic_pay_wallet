@@ -22,7 +22,7 @@ class AdminUserController extends Controller
         return DataTables::of($data)
         ->addColumn('action', function ($each) {
           $edit_icon = '<a href="'.route('admin.admin-user.edit',$each->id).'" class="text-warning"><i class="fa fa-edit"></i></a>';
-          $delete_icon = '<a href="'.route('admin.admin-user.destroy',$each->id).'" class="text-danger"><i class="fa fa-trash"></i></a>';
+          $delete_icon = '<a href="#" class="text-danger delete" data-id="'.$each->id.'"><i class="fa fa-trash"></i></a>';
           return '<div class="action-icon">'. $edit_icon.$delete_icon . '</div>';
         })
         ->make(true);
@@ -66,4 +66,10 @@ class AdminUserController extends Controller
         return redirect()->route('admin.admin-user.index')->with('update','Admin User Update Successfully');
     }
     //'disable_remote_validation' => true,
+
+    public function destroy($id){
+        $admin_user = AdminUser::findorFail($id);
+        $admin_user->delete();
+        return 'success';
+    }
 }

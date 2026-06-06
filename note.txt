@@ -50,3 +50,4 @@ https://sweetalert2.github.io/
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 -php artisan make:request UpdateAdminUser
+js validation မှာ false လုပ်ပေးဖို့လို။
