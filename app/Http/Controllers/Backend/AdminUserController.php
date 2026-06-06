@@ -6,6 +6,7 @@ use App\AdminUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAdminUser;
 use App\Http\Requests\UpdateAdminUser;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Jenssegers\Agent\Agent;
@@ -32,7 +33,7 @@ class AdminUserController extends Controller
                 $browser = $agent->browser();
 
                 // return $device->name.' '.$platform->name.' '.$browser->name;
-                return '<table class="table table-bordered" style="width:45%">
+                return '<table class="table table-bordered">
                 <tbody>
                 <tr><td>Device</td><td>'.$device.'</td></tr>
                 <tr><td>Platform</td><td>'.$platform.'</td></tr>
@@ -42,7 +43,12 @@ class AdminUserController extends Controller
             }
             return '-';
         })
-
+        ->editColumn('created_at',function($each){
+            return Carbon::parse($each->created_at)->format('Y-m-d H:i:s');
+        })
+        ->editColumn('updated_at',function($each){
+            return Carbon::parse($each->updated_at)->format('Y-m-d H:i:s');
+        })
         ->addColumn('action', function ($each) {
           $edit_icon = '<a href="'.route('admin.admin-user.edit',$each->id).'" class="text-warning"><i class="fa fa-edit"></i></a>';
           $delete_icon = '<a href="#" class="text-danger delete" data-id="'.$each->id.'"><i class="fa fa-trash"></i></a>';
