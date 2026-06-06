@@ -84,3 +84,13 @@ ep-> 22
 =>firstOrCreate     //user crete ရင် wallet ပါတစ်ခါတည်း ဆောက်ပေး
 
 =>DB transaction        //လုပ်ငန်းစဉ် တစ်ဝက်တစ်ပျက်ဆိုရင် data မဝင် fail ။နှစ်ခုလုံးပြိုင်တူဖြစ်အောင်သုံး။ try catch.
+
+
+--------------------------------------------------
+
+=>Helper
+-laravel-helper-functions
+https://github.com/spatie/laravel-helper-functions
+composer require spatie/laravel-helper-functions
+
+-custom Helper

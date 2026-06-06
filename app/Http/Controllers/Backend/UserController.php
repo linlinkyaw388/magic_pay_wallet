@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Helpers\UUIDGenerate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
@@ -80,7 +81,7 @@ class UserController extends Controller
                 'user_id' => $user->id
             ],
             [
-                'account_number' => '1234567890',
+                'account_number' => UUIDGenerate::accountNumber(),
                 'amount' => 0,
             ]
             );
@@ -89,7 +90,7 @@ class UserController extends Controller
             return redirect()->route('admin.user.index')->with('create','User Created Successfully');
         }catch(\Exception $e){
             DB::rollBack();
-            return back()->withErrors(['fail' => 'Something wrong'])->withInput();
+            return back()->withErrors(['fail' => 'Something wrong.'.$e->getMessage()])->withInput();
         }
     }
 
@@ -100,13 +101,31 @@ class UserController extends Controller
 
     public function update($id , UpdateUser $request){
 
+        DB::beginTransaction();
+        try{
         $user = User::findorFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = $request->password ? Hash::make($request->password) : $user->password;
         $user->update();
-        return redirect()->route('admin.user.index')->with('update','User Update Successfully');
+
+        Wallet::firstOrCreate(
+            [
+                'user_id' => $user->id
+            ],
+            [
+                'account_number' => UUIDGenerate::accountNumber(),
+                'amount' => 0,
+            ]
+            );
+            DB::commit();
+
+            return redirect()->route('admin.user.index')->with('update','User Update Successfully');
+        }catch(\Exception $e){
+                DB::rollBack();
+                return back()->withErrors(['fail' => 'Something wrong.'.$e->getMessage()])->withInput();
+            }
     }
     //'disable_remote_validation' => true,
 
