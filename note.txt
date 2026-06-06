@@ -59,3 +59,11 @@ js validation မှာ false လုပ်ပေးဖို့လို။
 
 -github.com/jenssegers/agent
 -composer require jenssegers/agent:^2.6  | composer require jenssegers/agent
+
+
+--------------------------------------------------
+
+-php artisan make:migration add_other_columns_to_users_table --table=users
+
+-php artisan migration:rollback
+-ထည့်ချင်တာတွေထည့် migrate ပြန်လုပ်။
