@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use App\AdminUser;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAdminUser;
+
+use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateAdminUser;
 use App\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
 use Jenssegers\Agent\Agent;
 use Symfony\Component\VarDumper\Cloner\Data;
@@ -60,25 +61,18 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view('backend.admin_user.create');
+        return view('backend.user.create');
     }
 
-    public function store(StoreAdminUser $request){
-        // return $request->all();
-        // $this->validate($request,[
-        //     'name'=>'required',
-        //     'email'=>'required|email',
-        //     'phone'=>'required|numeric',
-        // ]);
-        // AdminUser::create($request->all());
-        // return redirect()->route('admin.admin-user.index')->with('success','Admin User Created Successfully');
-        $admin_user = new AdminUser();
-        $admin_user->name = $request->name;
-        $admin_user->email = $request->email;
-        $admin_user->phone = $request->phone;
-        $admin_user->password = Hash::make($request->password);
-        $admin_user->save();
-        return redirect()->route('admin.admin-user.index')->with('create','Admin User Created Successfully');
+    public function store(StoreUser $request){
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->route('admin.user.index')->with('create','User Created Successfully');
     }
 
     public function edit($id){

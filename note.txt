@@ -67,3 +67,7 @@ js validation မှာ false လုပ်ပေးဖို့လို။
 
 -php artisan migration:rollback
 -ထည့်ချင်တာတွေထည့် migrate ပြန်လုပ်။
+
+--------------------------------------------------
+
+-php artisan make:request StoreUser
