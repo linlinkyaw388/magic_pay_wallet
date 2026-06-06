@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\AdminUser;
 use App\Http\Controllers\Controller;
-
 use App\Http\Requests\StoreUser;
-use App\Http\Requests\UpdateAdminUser;
+use App\Http\Requests\UpdateUser;
 use App\User;
 use Carbon\Carbon;
-
 use Illuminate\Support\Facades\Hash;
 use Jenssegers\Agent\Agent;
 use Symfony\Component\VarDumper\Cloner\Data;
@@ -76,25 +73,25 @@ class UserController extends Controller
     }
 
     public function edit($id){
-        $admin_user = AdminUser::findorFail($id);
-        return view('backend.admin_user.edit',compact('admin_user'));
+        $user = User::findorFail($id);
+        return view('backend.user.edit',compact('user'));
     }
 
-    public function update($id , UpdateAdminUser $request){
+    public function update($id , UpdateUser $request){
 
-        $admin_user = AdminUser::findorFail($id);
-        $admin_user->name = $request->name;
-        $admin_user->email = $request->email;
-        $admin_user->phone = $request->phone;
-        $admin_user->password = $request->password ? Hash::make($request->password) : $admin_user->password;
-        $admin_user->update();
-        return redirect()->route('admin.admin-user.index')->with('update','Admin User Update Successfully');
+        $user = User::findorFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = $request->password ? Hash::make($request->password) : $user->password;
+        $user->update();
+        return redirect()->route('admin.user.index')->with('update','User Update Successfully');
     }
     //'disable_remote_validation' => true,
 
     public function destroy($id){
-        $admin_user = AdminUser::findorFail($id);
-        $admin_user->delete();
+        $user = User::findorFail($id);
+        $user->delete();
         return 'success';
     }
 }

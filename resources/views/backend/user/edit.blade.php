@@ -1,8 +1,8 @@
 
 @extends('backend.layouts.app')
-@section('title','Edit Admin Users')
+@section('title','Edit Users')
 
-@section('admin-user-active','mm-active')
+@section('user-active','mm-active')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                 <i class="pe-7s-users icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Edit Admin Users</div>
+            <div>Edit Users</div>
         </div>
                                
     </div>
@@ -26,20 +26,20 @@
 
             @include('backend.layouts.flash')
 
-            <form action="{{route('admin.admin-user.update',$admin_user->id)}}" method="POST" id="update">
+            <form action="{{route('admin.user.update',$user->id)}}" method="POST" id="update">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{$admin_user->name}}">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{$user->name}}">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{$admin_user->email}}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{$user->email}}">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone" value="{{$admin_user->phone}}">
+                    <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone" value="{{$user->phone}}">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>

@@ -71,3 +71,5 @@ js validation မှာ false လုပ်ပေးဖို့လို။
 --------------------------------------------------
 
 -php artisan make:request StoreUser
+
+-php artisan make:request UpdateUser
