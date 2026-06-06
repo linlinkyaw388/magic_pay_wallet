@@ -51,13 +51,6 @@ class AdminLoginController extends Controller
         return view('auth.admin_login');
     }
 
-      /**
-     * The user has been authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
     // authticate ဖြစ်ပြီးနောက် လုပ်စေချင်တဲ့အရာတွေရေးလို့ရ။ 
     protected function authenticated(Request $request, $user)
     {

@@ -15,8 +15,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    // protected $guarded = []; fillable တွေမသုံးချင်ဘူးဆို ဒီလိုလည်းပြုလုပ်နိုင်သည်။
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email','phone', 'password','ip','user_agent','login_at',
     ];
 
     /**

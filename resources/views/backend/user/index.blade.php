@@ -34,6 +34,7 @@
                         <th>phone</th>
                         <th>Ip</th>
                         <th>User agent</th>
+                        <th>Login At</th>
                         <th>Created At</th>
                         <th>Updated At</th>
                         <th>Action</th>
@@ -80,6 +81,10 @@
                 {
                     data:'user_agent',
                     name:'user_agent'
+                },
+                {
+                    data:'login_at',
+                    name:'login_at'
                 },
                 {
                     data:'created_at',
