@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\User;
+use App\Wallet;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Jenssegers\Agent\Agent;
 use Symfony\Component\VarDumper\Cloner\Data;
@@ -63,13 +65,32 @@ class UserController extends Controller
 
     public function store(StoreUser $request){
 
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->password = Hash::make($request->password);
-        $user->save();
-        return redirect()->route('admin.user.index')->with('create','User Created Successfully');
+        DB::beginTransaction();
+        try{
+
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            Wallet::firstOrCreate(
+            [
+                'user_id' => $user->id
+            ],
+            [
+                'account_number' => '1234567890',
+                'amount' => 0,
+            ]
+            );
+
+            DB::commit();
+            return redirect()->route('admin.user.index')->with('create','User Created Successfully');
+        }catch(\Exception $e){
+            DB::rollBack();
+            return back()->withErrors(['fail' => 'Something wrong'])->withInput();
+        }
     }
 
     public function edit($id){
