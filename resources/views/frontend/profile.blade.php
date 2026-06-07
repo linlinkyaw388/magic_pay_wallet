@@ -33,7 +33,7 @@
                     <span class="mr-3"><i class="fas fa-angle-right"></i></span>
                 </div>
                 <hr>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between logout">
                     <span>Logout</span>
                     <span class="mr-3"><i class="fas fa-angle-right"></i></span>
                 </div>
@@ -42,4 +42,34 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function(){
+        $(document).on('click','.logout',function(e){
+            e.preventDefault();
+        
+            Swal.fire({
+            title: "Are you sure.You want to logout?",
+            showCancelButton: true,
+            confirmButtonText: "Confirm",
+            }).then((result) => {
+             if (result.isConfirmed){
+                $.ajax({
+                    url : "{{route('logout')}}",
+                    type : 'POST',
+                    // data: {
+                    //         _token: "{{ csrf_token() }}" // ဒီစာကြောင်းလေး ထည့်ပေးရပါမယ်
+                    //     },
+                    success:function(){
+                        window.location.replace("{{route('profile')}}");
+                    }
+                });
+                //post သုံးရင် laravel csrf token ထည့်ပေးဖို့လို။
+             }
+            });
+        })
+    });
+</script>
 @endsection
