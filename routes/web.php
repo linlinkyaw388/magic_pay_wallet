@@ -25,6 +25,7 @@ Route::post('admin/logout', 'Auth\AdminLoginController@logout')->name('admin.log
 Auth::routes();
 
 //auth.php မှာသွားကြည့်လို့ရသည်။
-Route::middleware('auth')->group(function(){
-    Route::get('/', 'Frontend\PageController@home');
+Route::middleware('auth')->namespace('frontend')->group(function(){
+    Route::get('/', 'PageController@home')->name('home');
+    Route::get('/profile', 'PageController@profile')->name('profile'); //route('name')ဆိုပြီးပြန်ခေါ်သုံးလို့ရ။
 });

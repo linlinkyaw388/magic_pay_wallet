@@ -12,25 +12,71 @@
     <!-- boostrap css-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <!-- fontawesome cheatsheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google font open sans -->
     <!-- custom css -->
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 
     @yield('extra_css')
 <body>
     <div id="app">
+
+        <div class="header-menu">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-8">
+                    <div class="row">
+                        
+                        <div class="col-md-4 text-center">
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <a href="">
+                                <h3>@yield('title')</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <a href="">
+                                <i class="fas fa-bell"></i>
+                            </a>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
       
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="content">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                @yield('content')
+        </div>
+            </div>
+        </div>
 
         <div class="bottom-menu">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-8">
                     <div class="row">
                         
-                        <div class="col-md-4">Home</div>
-                        <div class="col-md-4">Scan</div>
-                        <div class="col-md-4">Account</div>
+                        <div class="col-md-4 text-center">
+                            <a href="{{route('home')}}">
+                                <i class="fas fa-home"></i>
+                                <p>Home</p>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <a href="">
+                                <i class="fas fa-qrcode"></i>
+                                <p>Scan</p>
+                            </a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <a href="{{route('profile')}}">
+                                <i class="fas fa-user"></i>
+                                <p>Account</p>
+                            </a>
+                        </div>
                        
                     </div>
                 </div>
