@@ -1,0 +1,36 @@
+/* ---------------------------Theme Color-------------------------------- */
+/* 
+theme - #5842E3
+background - #EDEDF5 
+border-radius - 10px 
+font-size - 15px
+box-shadow - 0 1px 3px rgba(0,0,0,0.09) 
+*/
+
+body{
+    background-color: #EDEDF5;
+}
+
+.btn{
+    padding: 10px;
+}
+
+.btn-theme{
+    background-color: #5842E3;
+    color: #fff;
+}
+
+/* 
+.auth-forms{
+
+} */
+
+/* ---------------------------Bottom Menu-------------------------------- */
+
+.bottom-menu{
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

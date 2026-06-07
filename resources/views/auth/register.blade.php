@@ -1,10 +1,11 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.app_plain')
 
+@section('title', 'Register')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card auth-forms">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -80,6 +81,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+
+                                <a href="{{route('login')}}">Already have an Account?</a>
+
                             </div>
                         </div>
                     </form>

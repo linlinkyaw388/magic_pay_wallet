@@ -14,13 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//User Auth
-Auth::routes();
-
 
 //Admin User Auth
 Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin.login');
 Route::post('admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
-Route::get('/', 'Frontend\PageController@home');
+
+//User Auth
+Auth::routes();
+
+//auth.php မှာသွားကြည့်လို့ရသည်။
+Route::middleware('auth')->group(function(){
+    Route::get('/', 'Frontend\PageController@home');
+});

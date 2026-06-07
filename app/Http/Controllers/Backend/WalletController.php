@@ -15,7 +15,7 @@ class WalletController extends Controller
     }
 
     public function ssd(){
-        $wallet = Wallet::query();
+        $wallet = Wallet::with('user'); //egar loading
 
         return DataTables::of($wallet)
         ->addColumn('account_person',function($each){
