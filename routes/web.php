@@ -28,4 +28,6 @@ Auth::routes();
 Route::middleware('auth')->namespace('frontend')->group(function(){
     Route::get('/', 'PageController@home')->name('home');
     Route::get('/profile', 'PageController@profile')->name('profile'); //route('name')ဆိုပြီးပြန်ခေါ်သုံးလို့ရ။
+
+    Route::get('/update-password', 'PageController@updatePassword')->name('update-password');
 });

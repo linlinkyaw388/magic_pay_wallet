@@ -12,20 +12,47 @@ body{
     font-size: 15px;
 }
 
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #5842E3;
+}
+
 .btn{
-    padding: 10px;
+    padding: 10px 25px;
 }
 
 .btn-theme{
+    background-color: #624dec;
+    color: #fff;
+}
+.btn-theme:hover{
     background-color: #5842E3;
     color: #fff;
+
+    transition: .3s;
+
 }
 
 /* 
 .auth-forms{
 
 } */
-
+/* .swal2-popup{
+    border-radius: 10px !important;
+    color: #fff !important;
+}
+/* .swal2-title{
+    font-size: 18px !important;
+} */
+/* .swal2-styled{
+    border-radius: 10px !important;
+    padding: 10px 25px !important;
+} */
 
 /* ---------------------------header Menu-------------------------------- */
 
@@ -131,4 +158,9 @@ body{
     border-radius: 10px;
     box-shadow : 0 1px 3px rgba(0,0,0,0.09) 
 
+}
+
+/* ---------------------------Update Password-------------------------------- */
+.update-password img{
+    width: 300px;
 }
