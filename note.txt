@@ -127,3 +127,8 @@ composer require spatie/laravel-helper-functions
 --------------------------------------------------
 
 https://undraw.co/
+manypixels
+
+laravel hash check
+
+-php artisan make:request UpdatePassword

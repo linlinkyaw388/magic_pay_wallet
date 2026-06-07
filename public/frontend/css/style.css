@@ -22,6 +22,12 @@ a:hover{
     color: #5842E3;
 }
 
+.card{
+    border-radius: 10px;
+    box-shadow : 0 1px 3px rgba(0,0,0,0.09) ;
+    border:none;
+}
+
 .btn{
     padding: 10px 25px;
 }
@@ -37,6 +43,11 @@ a:hover{
     transition: .3s;
 
 }
+
+.invalid-feedback{
+    display: block;
+}
+/* ---------------------------sweet alert-------------------------------- */
 
 /* 
 .auth-forms{
@@ -162,5 +173,5 @@ a:hover{
 
 /* ---------------------------Update Password-------------------------------- */
 .update-password img{
-    width: 300px;
+    width: 280px;
 }
